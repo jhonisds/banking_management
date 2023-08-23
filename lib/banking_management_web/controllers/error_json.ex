@@ -15,6 +15,8 @@ defmodule BankingManagementWeb.ErrorJSON do
 
   def error(%{status: :not_found}), do: %{message: "Not Found"}
 
+  def error(%{status: status}), do: %{status: status}
+
   def error(%{msg: msg}), do: %{message: msg}
 
   def error(%{changeset: changeset}) do

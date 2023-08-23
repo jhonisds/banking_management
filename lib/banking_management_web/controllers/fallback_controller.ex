@@ -8,7 +8,14 @@ defmodule BankingManagementWeb.FallbackController do
     |> render(:error, status: :not_found)
   end
 
-  def call(conn, {:error, changeset}) do
+  def call(conn, {:error, :bad_request}) do
+    conn
+    |> put_status(:bad_request)
+    |> put_view(json: BankingManagementWeb.ErrorJSON)
+    |> render(:error, status: :bad_request)
+  end
+
+  def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn
     |> put_status(:bad_request)
     |> put_view(json: BankingManagementWeb.ErrorJSON)

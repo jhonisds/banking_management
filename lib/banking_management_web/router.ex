@@ -5,13 +5,23 @@ defmodule BankingManagementWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug BankingManagementWeb.Plugs.Auth
+  end
+
   scope "/api", BankingManagementWeb do
     pipe_through :api
 
-    resources "/users", UserController, only: [:create, :update, :delete, :show]
+    resources "/users", UserController, only: [:create]
+    post "/auth", UserController, :auth
+  end
+
+  scope "/api", BankingManagementWeb do
+    pipe_through [:api, :auth]
+
+    resources "/users", UserController, only: [:update, :delete, :show]
     resources "/accounts", AccountController, only: [:create]
     post "/accounts/transaction", AccountController, :transaction
-    post "/auth", UserController, :auth
   end
 
   # Enable LiveDashboard in development
