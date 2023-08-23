@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- Create interface using Mix/Task
-- Mock Http call
+- Update Documentation
+- Add logs
 
 ### Features
 

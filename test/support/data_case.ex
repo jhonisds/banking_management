@@ -19,6 +19,7 @@ defmodule BankingManagement.DataCase do
   using do
     quote do
       alias BankingManagement.Repo
+      alias BankingManagement.Support.Factory
 
       import Ecto
       import Ecto.Changeset

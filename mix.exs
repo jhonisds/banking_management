@@ -55,6 +55,12 @@ defmodule BankingManagement.MixProject do
       {:ex_machina, "~> 2.7", only: :test},
       {:mock, "~> 0.3.8", only: :test},
 
+      # Validations
+      {:brcpfcnpj, "~> 1.0"},
+
+      # Password hashing
+      {:argon2_elixir, "~> 3.1"},
+
       # Lint
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:credo_naming, "~> 2.0", only: [:dev, :test], runtime: false}

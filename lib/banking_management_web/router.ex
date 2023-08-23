@@ -7,6 +7,10 @@ defmodule BankingManagementWeb.Router do
 
   scope "/api", BankingManagementWeb do
     pipe_through :api
+
+    resources "/users", UserController, only: [:create, :update, :delete, :show]
+    resources "/accounts", AccountController, only: [:create]
+    post "/accounts/transaction", AccountController, :transaction
   end
 
   # Enable LiveDashboard in development

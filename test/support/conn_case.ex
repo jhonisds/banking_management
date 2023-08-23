@@ -24,6 +24,8 @@ defmodule BankingManagementWeb.ConnCase do
 
       use BankingManagementWeb, :verified_routes
 
+      alias BankingManagement.Support.Factory
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
