@@ -17,9 +17,10 @@ defmodule BankingManagementWeb.UserJSON do
     }
   end
 
-  def delete(%{user: _user}) do
+  def auth(%{token: token}) do
     %{
-      message: "User deleted successfully"
+      message: "User authenticated successfully",
+      bearer: token
     }
   end
 

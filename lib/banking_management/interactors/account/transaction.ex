@@ -13,7 +13,7 @@ defmodule BankingManagement.Interactors.Account.Transaction do
           "from_account_id" => from_account_id,
           "to_account_id" => to_account_id,
           "amount" => amount
-        } = params
+        } = _params
       ) do
     with %Account{} = from_account <- Repo.get(Account, from_account_id),
          %Account{} = to_account <- Repo.get(Account, to_account_id),

@@ -5,6 +5,7 @@ defmodule BankingManagementWeb.UserController do
   alias BankingManagement.Users
 
   alias BankingManagementWeb.FallbackController
+  alias BankingManagementWeb.Token
 
   action_fallback FallbackController
 
@@ -29,6 +30,16 @@ defmodule BankingManagementWeb.UserController do
       conn
       |> put_status(:ok)
       |> render(:update, user: user)
+    end
+  end
+
+  def auth(conn, params) do
+    with {:ok, %User{} = user} <- Users.auth(params) do
+      token = Token.sign(user)
+
+      conn
+      |> put_status(:ok)
+      |> render(:auth, token: token)
     end
   end
 end
