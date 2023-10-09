@@ -59,7 +59,7 @@ defmodule BankingManagement.MixProject do
       {:brcpfcnpj, "~> 1.0"},
 
       # Password hashing
-      {:argon2_elixir, "~> 3.1"},
+      {:argon2_elixir, "~> 4.0"},
 
       # Lint
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
